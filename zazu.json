@@ -1,44 +1,24 @@
 {
-  "name": "zazu-template",
+  "name": "zazu-bangs",
   "version": "1.0.0",
-  "description": "Zazu Template for starting your own plugin.",
+  "description": "Search through bangs from duck duck go.",
   "blocks": {
     "input": [
       {
-        "id": "template",
-        "type": "Keyword",
-        "keyword": "template",
-        "title": "Zazu Template",
-        "subtitle": "Goto Zazu Template GitHub Repo",
-        "icon": "fa-files-o",
-        "connections": [
-          "GoHome"
-        ]
-      },
-      {
-        "id": "hello",
-        "type": "Keyword",
-        "keyword": "hello",
-        "title": "Hello!",
-        "subtitle": "Please type your name!",
-        "icon": "fa-hand-spock-o",
-        "connections": ["GoHome"]
-      },
-      {
-        "id": "hello-name",
+        "id": "bangs",
         "type": "PrefixScript",
-        "prefix": "hello",
-        "space": true,
+        "prefix": "!",
+        "space": false,
         "args": "Required",
-        "script": "src/hello.js",
-        "connections": ["GoHome"]
+        "script": "src/bangs.js",
+        "connections": ["Duck"]
       }
     ],
     "output": [
       {
-        "id": "GoHome",
+        "id": "Duck",
         "type": "OpenInBrowser",
-        "url": "https://github.com/tinytacoteam/zazu-template"
+        "url": "https://duckduckgo.com/?q={value}"
       }
     ]
   }
